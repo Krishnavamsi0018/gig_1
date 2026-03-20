@@ -58,7 +58,7 @@ input, select, textarea { font-size: 16px; font-family: inherit; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--bg-elevated); border-radius: 99px; }
 
-@media (min-width: 768px) { *, *::before, *::after { cursor: none !important; } }
+@media (pointer: fine) { *, *::before, *::after { cursor: none !important; } }
 #cursor-dot { width:5px;height:5px;background:var(--primary);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition:transform 0.08s ease; }
 #cursor-ring { width:28px;height:28px;border:1.5px solid rgba(13,148,136,0.5);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:width 0.25s ease,height 0.25s ease,border-color 0.2s ease; }
 

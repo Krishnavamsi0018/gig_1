@@ -1,5 +1,5 @@
 import { Routes, Route, useLocation } from 'react-router-dom'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Toaster } from 'react-hot-toast'
 import BottomNav from './components/BottomNav'
 import AppHeader from './components/AppHeader'
@@ -50,11 +50,16 @@ function CustomCursor() {
 export default function App() {
   const location = useLocation()
   const isLanding = location.pathname === '/'
+  const [hasFinePointer, setHasFinePointer] = useState(false)
+
+  useEffect(() => {
+    setHasFinePointer(window.matchMedia('(pointer: fine)').matches)
+  }, [])
 
   return (
     <WalletProvider>
       <div className="grain min-h-screen" style={{ background: 'var(--bg-base)' }}>
-        <CustomCursor />
+        {hasFinePointer && <CustomCursor />}
         {!isLanding && <AppHeader />}
         <Routes>
           <Route path="/"              element={<Landing />} />
