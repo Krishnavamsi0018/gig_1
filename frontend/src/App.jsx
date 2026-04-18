@@ -56,6 +56,12 @@ export default function App() {
     setHasFinePointer(window.matchMedia('(pointer: fine)').matches)
   }, [])
 
+  // Wake up Render backend on app load
+  useEffect(() => {
+    fetch('https://gigsecure-backend.onrender.com/api/health')
+      .catch(() => {})
+  }, [])
+
   return (
     <WalletProvider>
       <div className="grain min-h-screen" style={{ background: 'var(--bg-base)' }}>
